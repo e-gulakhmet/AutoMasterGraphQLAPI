@@ -10,9 +10,7 @@ BASE_URL = os.environ.get('BASE_URL', '')
 BASE_CLIENT_URL = os.environ.get('BASE_CLIENT_URL', '')
 
 # SECURITY WARNING: update this when you have the production host
-ALLOWED_HOSTS = os.environ.get(
-    'ALLOWED_HOSTS',
-    'localhost,server-main').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,server-main').split(',')
 
 LOG_PATH = os.path.join(BASE_DIR, '../logs')
 LOGGING = {

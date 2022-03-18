@@ -35,36 +35,15 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "djangorestframework"
-version = "3.13.1"
-description = "Web APIs for Django, made easy."
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-django = ">=2.2"
-pytz = "*"
-
-[[package]]
-name = "djangorestframework-simplejwt"
-version = "5.1.0"
-description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
+name = "django-cors-headers"
+version = "3.11.0"
+description = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-django = "*"
-djangorestframework = "*"
-pyjwt = ">=1.7.1,<3"
-
-[package.extras]
-dev = ["pytest-watch", "wheel", "twine", "ipython", "cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox", "flake8", "pep8", "isort", "Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)", "python-jose (==3.3.0)"]
-doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
-lint = ["flake8", "pep8", "isort"]
-python-jose = ["python-jose (==3.3.0)"]
-test = ["cryptography", "pytest-cov", "pytest-django", "pytest-xdist", "pytest", "tox"]
+Django = ">=2.2"
 
 [[package]]
 name = "graphene"
@@ -168,28 +147,6 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
-name = "pyjwt"
-version = "2.3.0"
-description = "JSON Web Token implementation in Python"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-
-[package.extras]
-crypto = ["cryptography (>=3.3.1)"]
-dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
-docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
-tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
-
-[[package]]
-name = "pytz"
-version = "2021.3"
-description = "World timezone definitions, modern and historical"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "rx"
 version = "1.6.1"
 description = "Reactive Extensions (Rx) for Python"
@@ -247,7 +204,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "04affbe7792cdc193979de8618e79eb308a2980314df3c5b64494b47c546f7d2"
+content-hash = "e34c1b8818cd49bdc9c4b41ffea1355449c22fdd6e5ee85d115f7b6d02f10f91"
 
 [metadata.files]
 aniso8601 = [
@@ -262,13 +219,9 @@ django = [
     {file = "Django-4.0.3-py3-none-any.whl", hash = "sha256:1239218849e922033a35d2a2f777cb8bee18bd725416744074f455f34ff50d0c"},
     {file = "Django-4.0.3.tar.gz", hash = "sha256:77ff2e7050e3324c9b67e29b6707754566f58514112a9ac73310f60cd5261930"},
 ]
-djangorestframework = [
-    {file = "djangorestframework-3.13.1-py3-none-any.whl", hash = "sha256:24c4bf58ed7e85d1fe4ba250ab2da926d263cd57d64b03e8dcef0ac683f8b1aa"},
-    {file = "djangorestframework-3.13.1.tar.gz", hash = "sha256:0c33407ce23acc68eca2a6e46424b008c9c02eceb8cf18581921d0092bc1f2ee"},
-]
-djangorestframework-simplejwt = [
-    {file = "djangorestframework_simplejwt-5.1.0-py3-none-any.whl", hash = "sha256:cd3ee3aabdc98de104957c136e74ba2a16571b151c88ecd97421fce171a03ea4"},
-    {file = "djangorestframework_simplejwt-5.1.0.tar.gz", hash = "sha256:75323528a7b910843b879194746f0ebc3481c4ad9f354de2dd162160662fb95a"},
+django-cors-headers = [
+    {file = "django-cors-headers-3.11.0.tar.gz", hash = "sha256:eb98389bf7a2afc5d374806af4a9149697e3a6955b5a2dc2bf049f7d33647456"},
+    {file = "django_cors_headers-3.11.0-py3-none-any.whl", hash = "sha256:a22be2befd4069c4fc174f11cf067351df5c061a3a5f94a01650b4e928b0372b"},
 ]
 graphene = [
     {file = "graphene-2.1.9-py2.py3-none-any.whl", hash = "sha256:3d446eb1237c551052bc31155cf1a3a607053e4f58c9172b83a1b597beaa0868"},
@@ -383,14 +336,6 @@ psycopg2-binary = [
     {file = "psycopg2_binary-2.9.3-cp39-cp39-musllinux_1_1_x86_64.whl", hash = "sha256:99485cab9ba0fa9b84f1f9e1fef106f44a46ef6afdeec8885e0b88d0772b49e8"},
     {file = "psycopg2_binary-2.9.3-cp39-cp39-win32.whl", hash = "sha256:46f0e0a6b5fa5851bbd9ab1bc805eef362d3a230fbdfbc209f4a236d0a7a990d"},
     {file = "psycopg2_binary-2.9.3-cp39-cp39-win_amd64.whl", hash = "sha256:accfe7e982411da3178ec690baaceaad3c278652998b2c45828aaac66cd8285f"},
-]
-pyjwt = [
-    {file = "PyJWT-2.3.0-py3-none-any.whl", hash = "sha256:e0c4bb8d9f0af0c7f5b1ec4c5036309617d03d56932877f2f7a0beeb5318322f"},
-    {file = "PyJWT-2.3.0.tar.gz", hash = "sha256:b888b4d56f06f6dcd777210c334e69c737be74755d3e5e9ee3fe67dc18a0ee41"},
-]
-pytz = [
-    {file = "pytz-2021.3-py2.py3-none-any.whl", hash = "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c"},
-    {file = "pytz-2021.3.tar.gz", hash = "sha256:acad2d8b20a1af07d4e4c9d2e9285c5ed9104354062f275f3fcd88dcef4f1326"},
 ]
 rx = [
     {file = "Rx-1.6.1-py2.py3-none-any.whl", hash = "sha256:7357592bc7e881a95e0c2013b73326f704953301ab551fbc8133a6fadab84105"},
