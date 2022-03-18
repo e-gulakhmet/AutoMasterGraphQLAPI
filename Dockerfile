@@ -17,7 +17,10 @@ ENV PYTHONUNBUFFERED 1
 
 COPY . $HOME
 
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip \
+    && pip install poetry --trusted-host pypi.org --trusted-host files.pythonhosted.org \
+    && poetry config virtualenvs.create false \
+    && poetry install --no-interaction --no-ansi;
 
 COPY docker/entrypoint.sh /entrypoint.sh
 
