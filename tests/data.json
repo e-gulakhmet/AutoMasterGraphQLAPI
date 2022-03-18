@@ -1,0 +1,18 @@
+[
+  {
+    "model": "masters.Master",
+    "pk": 1,
+    "fields": {
+      "first_name": "Ivan",
+      "second_name": "Dobrov"
+    }
+  },
+  {
+    "model": "masters.Master",
+    "pk": 2,
+    "fields": {
+      "first_name": "Stepan",
+      "second_name": "Bezrukov"
+    }
+  }
+]

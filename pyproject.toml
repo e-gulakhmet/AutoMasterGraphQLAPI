@@ -6,11 +6,12 @@ authors = ["who-man-tech <wwho.mann.3@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.0.3"
 graphene-django = "^2.15.0"
 psycopg2-binary = "^2.9.3"
 Pillow = "^9.0.1"
 django-cors-headers = "^3.11.0"
+Django = "^3.2.12"
+argon2-cffi = "^21.3.0"
 
 [tool.poetry.dev-dependencies]
 

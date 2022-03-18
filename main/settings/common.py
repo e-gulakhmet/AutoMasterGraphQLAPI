@@ -22,12 +22,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'graphene_django',
 
     # custom apps
     'users',
-    'tokens',
-    'masters',
-    'registers',
+    # 'tokens',
+    # 'masters',
+    # 'registers',
 ]
 
 MIDDLEWARE = [
@@ -173,3 +174,7 @@ WORKING_DAY_ENDS_AT_HOUR = 20
 
 MAX_REGISTERS_TIMES_IN_DAY = \
     int((WORKING_DAY_ENDS_AT_HOUR - WORKING_DAY_STARTS_AT_HOUR - REGISTER_LIFETIME) / REGISTER_LIFETIME)
+
+GRAPHENE = {
+    'SCHEMA': 'main.schema.schema'
+}
