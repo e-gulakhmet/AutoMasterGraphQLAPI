@@ -1,4 +1,5 @@
 import graphene
+from django.contrib.auth import get_user_model
 from graphene_django.types import DjangoObjectType, ObjectType
 
 from users.models import User
@@ -25,6 +26,9 @@ class Query(ObjectType):
 
 class UserInput(graphene.InputObjectType):
     id = graphene.ID()
+    email = graphene.String()
+    password = graphene.String()
+
     first_name = graphene.String()
     second_name = graphene.String()
     middle_name = graphene.String()
@@ -32,23 +36,18 @@ class UserInput(graphene.InputObjectType):
 
 
 class CreateUser(graphene.Mutation):
+    user = graphene.Field(UserType)
+
     class Arguments:
         input = UserInput(required=True)
 
-    ok = graphene.Boolean()
-    user = graphene.Field(UserType)
-
     @staticmethod
-    def mutate(root, info, input=None):
-        ok = True
-        first_name = input.first_name
-        second_name = input.second_name
-        middle_name = input.middle_name
-        car_model = input.car_model
+    def mutate(info, input: UserInput):
+        instance = get_user_model()(email=input.email, first_name=input.first_name, second_name=input.second_name,
+                                    middle_name=input.middle_name, car_model=input.car_model)
 
-        instance = User.objects.create(first_name=first_name, second_name=second_name, middle_name=middle_name,
-                                       car_model=car_model)
-        return CreateUser(ok=ok, user=instance)
+        instance.set_password(input.password)
+        return CreateUser(user=instance)
 
 
 class UpdateUser(graphene.Mutation):
@@ -56,15 +55,14 @@ class UpdateUser(graphene.Mutation):
         id = graphene.Int(required=True)
         input = UserInput(required=True)
 
-    ok = graphene.Boolean()
     user = graphene.Field(UserType)
 
     @staticmethod
-    def mutate(root, info, id, input=None):
+    def mutate(root, info, id, input):
         try:
             instance = User.objects.get(pk=id)
         except User.DoesNotExist:
-            return UpdateUser(ok=False, user=None)
+            return UpdateUser(user=None)
 
         instance.first_name = input.first_name
         instance.second_name = input.second_name
@@ -78,6 +76,3 @@ class UpdateUser(graphene.Mutation):
 class Mutation(graphene.ObjectType):
     create_user = CreateUser.Field()
     update_user = UpdateUser.Field()
-
-
-schema = graphene.Schema(query=Query, mutation=Mutation)

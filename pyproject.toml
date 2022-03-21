@@ -12,6 +12,7 @@ Pillow = "^9.0.1"
 django-cors-headers = "^3.11.0"
 Django = "^3.2.12"
 argon2-cffi = "^21.3.0"
+django-graphql-jwt = "^0.3.4"
 
 [tool.poetry.dev-dependencies]
 

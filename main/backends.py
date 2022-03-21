@@ -1,5 +1,4 @@
 from django.contrib.auth.backends import BaseBackend
-from rest_framework import exceptions
 
 from users.models import User
 

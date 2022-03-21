@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'graphene_django',
 
+
     # custom apps
     'users',
     # 'tokens',
@@ -145,8 +146,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'main.backends.UserAuthenticationBackend',
-    'django.contrib.auth.backends.ModelBackend',
+    "graphql_jwt.backends.JSONWebTokenBackend",
+    "django.contrib.auth.backends.ModelBackend",
 ]
 
 TIME_ZONE = 'UTC'
@@ -176,5 +177,6 @@ MAX_REGISTERS_TIMES_IN_DAY = \
     int((WORKING_DAY_ENDS_AT_HOUR - WORKING_DAY_STARTS_AT_HOUR - REGISTER_LIFETIME) / REGISTER_LIFETIME)
 
 GRAPHENE = {
-    'SCHEMA': 'main.schema.schema'
+    'SCHEMA': 'main.schema.schema',
+    "MIDDLEWARE": ["graphql_jwt.middleware.JSONWebTokenMiddleware"],
 }

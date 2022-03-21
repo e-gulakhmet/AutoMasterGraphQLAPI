@@ -1,9 +1,10 @@
 import graphene
 
 import users.schema
+import tokens.schema
 
 
-class Mutation(users.schema.Mutation, graphene.ObjectType):
+class Mutation(users.schema.Mutation, tokens.schema.Mutation, graphene.ObjectType):
     pass
 
 
